@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fake News - For cat lover!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
 </head>
-
 
 
 <?php
@@ -54,6 +54,14 @@ if ($_SERVER['REQUEST_URI'] !== '/') {
                                 </div>
                             </div>
                             <span>
+                                <h6 class="small float-left mb-0 m-2" style="margin-left: 20px !important;">
+                                    <span class="fa-stack fa-1x">
+                                        <span class="far fa-thumbs-up fa-2x"></span>
+                                        <span class="fa-stack-1x" style="font-size: 0.65rem; margin-top: 3px; padding-right: 5px;">
+                                            25
+                                        </span>
+                                    </span>
+                                </h6>
                                 <h6 class="small float-right mb-0 m-2">
                                     <img class="rounded-circle" src="https://picsum.photos/30" />
                                     <a href="/<?= getAuthor($authors, $post['author'], 'name'); ?>">

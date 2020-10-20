@@ -55,17 +55,18 @@ function getPostsByAuthor(string $name, $authors, $posts = NULL)
         /* BUILD THE NEW POSTS ARRAY FOR THE SPECIFIC AUTHOR */
         return buildPosts($author_id, $posts);
     } else {
+
+        /* IF AUTHOR CANNOT BE FOUND, SHOW ALL POSTS */
         return $posts;
     }
 }
 
 function buildPosts($author_id, $posts)
 {
-    //echo array_search($author_id, array_column($posts, 'author'));
-
     $array_position = array_keys(array_column($posts, "author"), $author_id);
     foreach ($array_position as $key) {
         $post[] = array_merge(array(), $posts[$key]);
     }
+
     return $post;
 }
