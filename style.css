@@ -10,6 +10,17 @@ body{
     padding-left: 0px;
 }
 
+.like-post:hover {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.post{
+    -webkit-box-shadow: 4px 4px 7px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 7px -6px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 7px -6px rgba(0,0,0,0.75);
+}
+
 /* sidebar_right */
 
 .latest-news-list_title h2{

@@ -63,6 +63,7 @@ function getPostsByAuthor(string $name, $authors, $posts = NULL)
 
 function buildPosts($author_id, $posts)
 {
+    /* SEARCH FOR POSTS SPECIFIC FROM $author_id */
     $array_position = array_keys(array_column($posts, "author"), $author_id);
     foreach ($array_position as $key) {
         $post[] = array_merge(array(), $posts[$key]);

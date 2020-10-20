@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
+    <script src="functions.js"></script>
 </head>
 
 
@@ -39,9 +40,9 @@ if ($_SERVER['REQUEST_URI'] !== '/') {
             </div>
         </div>
         <div class="row" style="margin-top: 20px;">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 pl-0">
+            <section class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 pl-0">
                 <?php foreach ($posts as $post) :  ?>
-                    <div class="col-12">
+                    <article class="post col-12 p-0">
                         <div class="card">
                             <div class="card-header text-center p-0">
                                 <img class="img-fluid" src="<?= $post['img']; ?>" />
@@ -55,10 +56,10 @@ if ($_SERVER['REQUEST_URI'] !== '/') {
                             </div>
                             <span>
                                 <h6 class="small float-left mb-0 m-2" style="margin-left: 20px !important;">
-                                    <span class="fa-stack fa-1x">
+                                    <span class="fa-stack fa-1x like-post">
                                         <span class="far fa-thumbs-up fa-2x"></span>
-                                        <span class="fa-stack-1x" style="font-size: 0.65rem; margin-top: 3px; padding-right: 5px;">
-                                            25
+                                        <span class="fa-stack-1x" likes="<?= $post['likes']; ?>" style="font-size: 0.65rem; margin-top: 3px; padding-right: 5px;">
+                                            <?= $post['likes']; ?>
                                         </span>
                                     </span>
                                 </h6>
@@ -71,9 +72,9 @@ if ($_SERVER['REQUEST_URI'] !== '/') {
                                 </h6>
                             </span>
                         </div>
-                    </div>
+                    </article>
                 <?php endforeach; ?>
-            </div>
+            </section>
             <div class="col-lg-4 col-xl-4">
                 <?php require 'sidebar_right.php'; ?>
             </div>
