@@ -11,7 +11,7 @@ body{
 }
 
 .like-post:hover {
-    color: #007bff;
+    color: var(--blue);
     cursor: pointer;
 }
 
@@ -19,6 +19,11 @@ body{
     -webkit-box-shadow: 4px 4px 7px -6px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 4px 7px -6px rgba(0,0,0,0.75);
     box-shadow: 4px 4px 7px -6px rgba(0,0,0,0.75);
+}
+
+.card-body p {
+    color: var(--blue);
+    cursor: pointer;
 }
 
 /* sidebar_right */
@@ -34,10 +39,6 @@ body{
 .latest-news-list {
     border: 1px solid rgba(0,0,0,.125);
 	margin-bottom: .9375rem
-}
-
-.latest-news-list .latest-news--left {
-	background-color: #fff
 }
 
 .latest-news-list>a {

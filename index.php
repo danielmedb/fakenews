@@ -50,9 +50,13 @@ if ($_SERVER['REQUEST_URI'] !== '/') {
                             <div class="card-body">
                                 <div class="card-title">
                                     <h5 class="card-title"><?= $post['title']; ?></h5>
-                                    <!-- <?= (strlen($post['content']) > 100 ? substr($post['content'], 0, 100) . "..." : $post['content']); ?> -->
-                                    <?= $post['content']; ?>
                                 </div>
+                                <div class="card-content" words="<?= str_word_count($post['content']); ?>">
+                                    <?php
+                                    echo $post['content'];
+                                    ?>
+                                </div>
+                                <p>Läs hela nyheten</p>
                             </div>
                             <span>
                                 <h6 class="small float-left mb-0 m-2" style="margin-left: 20px !important;">
@@ -64,11 +68,12 @@ if ($_SERVER['REQUEST_URI'] !== '/') {
                                     </span>
                                 </h6>
                                 <h6 class="small float-right mb-0 m-2">
-                                    <img class="rounded-circle" src="https://picsum.photos/30" />
+
+                                    <?= $post['published_date']; ?>
                                     <a href="/<?= getAuthor($authors, $post['author'], 'name'); ?>">
                                         <?= getAuthor($authors, $post['author'], 'name'); ?>
                                     </a>
-                                    <?= $post['published_date']; ?>
+                                    <img class="rounded-circle" style="width: 40px; height: 40px;" src="<?= getAuthor($authors, $post['author'], 'img'); ?>" />
                                 </h6>
                             </span>
                         </div>
