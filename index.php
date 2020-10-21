@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake News - For cat lover!</title>
+    <title>Fake News - All the way!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
@@ -26,60 +26,75 @@ if ($_SERVER['REQUEST_URI'] !== '/') {
     $authorName = explode('/', $_SERVER['REQUEST_URI']);
     $authorName = filter_var($authorName[1], FILTER_SANITIZE_STRING);
     $posts = getPostsByAuthor($authorName, $authors, $posts);
-} else {
-    $posts = $posts;
 }
+
+usort($posts, function ($a, $b) {
+    return $b['published_date'] <=> $a['published_date'];
+});
+
+
+
 
 ?>
 
 <body>
     <div class="container" style="width: 1200px;">
-        <div class="row">
-            <div class="col-12 col-sm-12 col-lg-12 col-xl-12">
-                <!-- <img src="cat_header.jpg" style="width: inherit;" /> -->
-            </div>
-        </div>
-        <div class="row" style="margin-top: 20px;">
-            <section class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 pl-0">
-                <?php foreach ($posts as $post) :  ?>
-                    <article class="post col-12 p-0">
-                        <div class="card">
-                            <div class="card-header text-center p-0">
-                                <img class="img-fluid" src="<?= $post['img']; ?>" />
-                            </div>
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <h5 class="card-title"><?= $post['title']; ?></h5>
-                                </div>
-                                <div class="card-content" words="<?= str_word_count($post['content']); ?>">
-                                    <?php
-                                    echo $post['content'];
-                                    ?>
-                                </div>
-                                <p>Läs hela nyheten</p>
-                            </div>
-                            <span>
-                                <h6 class="small float-left mb-0 m-2" style="margin-left: 20px !important;">
-                                    <span class="fa-stack fa-1x like-post">
-                                        <span class="far fa-thumbs-up fa-2x"></span>
-                                        <span class="fa-stack-1x" likes="<?= $post['likes']; ?>" style="font-size: 0.65rem; margin-top: 3px; padding-right: 5px;">
-                                            <?= $post['likes']; ?>
-                                        </span>
-                                    </span>
-                                </h6>
-                                <h6 class="small float-right mb-0 m-2">
 
-                                    <?= $post['published_date']; ?>
-                                    <a href="/<?= getAuthor($authors, $post['author'], 'name'); ?>">
-                                        <?= getAuthor($authors, $post['author'], 'name'); ?>
-                                    </a>
-                                    <img class="rounded-circle" style="width: 40px; height: 40px;" src="<?= getAuthor($authors, $post['author'], 'img'); ?>" />
-                                </h6>
-                            </span>
-                        </div>
-                    </article>
-                <?php endforeach; ?>
-            </section>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Fake News Factory</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item <?php echo (!isset($_GET['page']) ? 'active' : ''); ?>">
+                        <a class="nav-link" href="/">Nyheter</a>
+                    </li>
+                    <li class="nav-item <?php echo ($_GET['page'] == 'sport' ? 'active' : ''); ?>">
+                        <a class="nav-link" href="?page=sport">Sport</a>
+                    </li>
+                    <li class="nav-item <?php echo ($_GET['page'] == 'ekonomi' ? 'active' : ''); ?>">
+                        <a class="nav-link" href="?page=ekonomi">Ekonomi</a>
+                    </li>
+                    <li class="nav-item <?php echo ($_GET['page'] == 'kultur' ? 'active' : ''); ?>">
+                        <a class="nav-link" href="?page=kultur">Kultur</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <div class="row" style="margin-top: 20px;">
+            <?php
+
+            if (isset($_GET['page']) && $_GET['page'] != '') {
+                $page = $_GET['page'];
+                switch ($page) {
+                    case 'sport':
+                        $posts = getPostsByCategori('Sport', $posts);
+                        include 'news.php';
+                        break;
+
+                    case 'ekonomi':
+                        $posts = getPostsByCategori('Ekonomi', $posts);
+                        include 'news.php';
+                        break;
+
+                    case 'kultur':
+                        $posts = getPostsByCategori('Kultur', $posts);
+                        include 'news.php';
+                        break;
+
+                    default:
+                        include 'news.php';
+                        break;
+                }
+            } else {
+                $posts = getPostsByCategori('all', $posts);
+                include 'news.php';
+            }
+
+            ?>
             <div class="col-lg-4 col-xl-4">
                 <?php require 'sidebar_right.php'; ?>
             </div>

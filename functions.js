@@ -6,11 +6,10 @@ window.onload = function () {
             _this = this.getElementsByClassName('fa-stack-1x')[0];
             NumberOfLikes = parseInt(_this.innerText);
 
-            /* DUO TO NO DATABASE. CHANGE TARGET SO IF CLICKED AGAIN, MINUS ON THE LIKES */
-
+            /* duo to no database. change target so if clicked again, minus on the likes */
             (parseInt(_this.getAttribute("likes")) === NumberOfLikes ? NumberOfLikes++ : NumberOfLikes--)
 
-            /* UPDATE TEXT */
+            /* update text */
             _this.innerHTML = NumberOfLikes;
         });
     }
@@ -18,16 +17,15 @@ window.onload = function () {
     readMore = document.querySelectorAll(".card-body p");
     for(let i = 0; i < readMore.length; i++){
 
-        /* CHANGE HEIGHT ON CARD-CONTENT IF OFFSET HEIGHT IS LARGER THAN 190 */
-        let _test = readMore[i].parentNode.getElementsByClassName('card-content')[0];
-        if(_test.offsetHeight < '190'){
+        /* change height on card-content if offset height is larger than 190 */
+        const element = readMore[i].parentNode.getElementsByClassName('card-content')[0];
+        if(element.offsetHeight < '190'){
             readMore[i].innerText = ''; 
         }else{
-            _test.style.height = '190px';
-            _test.style.overflow = 'hidden';
+            element.style.height = '190px';
+            element.style.overflow = 'hidden';
         }
 
-        // style="height: 190px; overflow:hidden;"
         readMore[i].addEventListener("click", function (e){
             e.preventDefault();
             let text = this;

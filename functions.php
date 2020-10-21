@@ -4,70 +4,63 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/data.php';
 
-$authors = [
-    1 => array(
-        'name' => 'Carina Fransson',
-        'mail' => 'carina.fransson@fakenews.com',
-        'img' => 'images/1.jpg'
-    ),
-    2 => array(
-        'name' => 'Gunborg Håkansson',
-        'mail' => 'gunborg.hakansson@fakenews.com',
-        'img' => 'images/2.jpg'
-    ),
-    3 => array(
-        'name' => 'Susann Lundström',
-        'mail' => 'susann.lundstrom@fakenews.com',
-        'img' => 'images/3.jpg'
-    ),
-    4 => array(
-        'name' => 'Dag Månsson',
-        'mail' => 'dag.monsson@fakenews.com',
-        'img' => 'images/4.jpg'
-    ),
-    5 => array(
-        'name' => 'Josefina Mattsson',
-        'mail' => 'josefina.mattsson@fakenews.com',
-        'img' => 'images/5.jpg'
-    )
-];
+error_reporting(E_ALL);
+
+
+require __DIR__ . '/data.php';
+require __DIR__ . '/authors.php';
 
 function getAuthor(array $authors, int $author_id, string $type)
 {
     return $authors[$author_id][$type];
 }
 
-function getPostsByAuthor(string $name, $authors, $posts = NULL)
+function getPostsByAuthor(string $name, $authors, $posts = NULL): array
 {
-    /* DECODE  */
     $name = urldecode($name);
 
-    /* SEARCH $AUTHORS-ARRAY FOR POSTS FROM SPECIFIC PERSON */
+    /* search $authors-array for posts from specific person */
     $author_id = array_search($name, array_column($authors, 'name'));
 
     if ($author_id !== false) {
 
-        /* TO GET THE COUNT CORRECT WE ADD 1 TO ARRAY_SEARCH. ARRAY_SEARCH FROM 0, $AUTHORS FROM 1 */
+        /* to get the count correct we add 1 to array_search. array_search from 0, $authors from 1 */
         $author_id += 1;
 
-        /* BUILD THE NEW POSTS ARRAY FOR THE SPECIFIC AUTHOR */
+        /* build the new posts array for the specific author */
         return buildPosts($author_id, $posts);
     } else {
-
-        /* IF AUTHOR CANNOT BE FOUND, SHOW ALL POSTS */
+        /* if author cannot be found, show all posts */
         return $posts;
     }
 }
 
-function buildPosts($author_id, $posts)
+function buildPosts(int $author_id, array $posts): array
 {
-    /* SEARCH FOR POSTS SPECIFIC FROM $author_id */
+    /* search for posts specific from $author_id */
     $array_position = array_keys(array_column($posts, "author"), $author_id);
     foreach ($array_position as $key) {
         $post[] = array_merge(array(), $posts[$key]);
     }
 
+    return $post;
+}
+
+
+function getPostsByCategori(string $categori, array $posts): array
+{
+
+    /* lets show all news */
+    if ($categori === 'all') {
+        return $posts;
+    }
+
+    /* search for posts specific from $categori */
+    $array_position = array_keys(array_column($posts, "categori"), $categori);
+
+    foreach ($array_position as $key) {
+        $post[] = array_merge(array(), $posts[$key]);
+    }
     return $post;
 }
