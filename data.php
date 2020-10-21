@@ -19,7 +19,7 @@ $posts =
             <br><br>
             Mad props pop punk seattle supersonics whitney houston flip flops ac slater, ghost pottery scene des’ree glow in the dark stickers yo eminem crew cut. Alternative rock baywatch personal computer khaki hottie how do you like them apples, wayne’s world keanu reeves denzel washington inflatable furniture. Mia hamm boombox dallas cowboys toyota previa can’t touch this, hey arnold space jam rollerblades piercings don’t ask don’t tell.',
             'likes' => 10,
-            'categori' => 'kultur',
+            'categori' => 'Kultur',
             'comments' => '',
             'img' => 'images/goodwillhunting.jpg'
         ],
@@ -36,7 +36,7 @@ $posts =
             <br><br>
             Forrest gump deep blue mariah carey scrunchies saved by the bell jurassic park, netscape navigator no fear t-shirts air jordans miss cleo. Floppy disk spice girls the macarena mc hammer g-shocks koosh ball. Doc martens as if bare midriffs lunchables beepers. Rachel green boy bands alta vista wayne’s world leggings magic johnson. Paper fortune teller y2k mad props snapple yo quiero taco bell, eminem boombox toyota supra vcr skidz and zubas mazda mpv.',
             'likes' => 2,
-            'categori' => 'kultur',
+            'categori' => 'Kultur',
             'comments' => '',
             'img' => 'images/forrestGump.jpg'
         ],
@@ -113,7 +113,7 @@ $posts =
             <br><br>
             Leotards ford bronco destiny\’s child space jam, patti mayonnaise razor scooter this is your brain on drugs smells like teen spirit bleached hair. Hootie and the blowfish real world ring pops fluorescent dolly the sheep. Can’t touch this tamagotchi miss cleo macaulay culkin, I will always love you rush hour i\'m king of the world the more you know g-shocks. You\’ve got mail atlanta braves members only jackets toyota supra vanilla ice cory matthews. Hot pink denim jackets pizza bagels titanic.',
             'likes' => 23,
-            'categori' => 'kultur',
+            'categori' => 'Kultur',
             'comments' => '',
             'img' => 'images/scooter.jpg'
         ],

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
     <script src="functions.js"></script>
 </head>
 
@@ -28,17 +29,12 @@ if ($_SERVER['REQUEST_URI'] !== '/') {
     $posts = getPostsByAuthor($authorName, $authors, $posts);
 }
 
-usort($posts, function ($a, $b) {
-    return $b['published_date'] <=> $a['published_date'];
-});
-
-
-
+$posts = sortPostsByPublishedDate($posts);
 
 ?>
 
 <body>
-    <div class="container" style="width: 1200px;">
+    <div class="container">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Fake News Factory</a>
@@ -69,28 +65,18 @@ usort($posts, function ($a, $b) {
 
             if (isset($_GET['page']) && $_GET['page'] != '') {
                 $page = $_GET['page'];
+                $build = [];
                 switch ($page) {
-                    case 'sport':
-                        $posts = getPostsByCategori('Sport', $posts);
-                        include 'news.php';
-                        break;
 
-                    case 'ekonomi':
-                        $posts = getPostsByCategori('Ekonomi', $posts);
-                        include 'news.php';
-                        break;
-
-                    case 'kultur':
-                        $posts = getPostsByCategori('Kultur', $posts);
-                        include 'news.php';
-                        break;
-
-                    default:
+                    case $page:
+                        $build = array('value' => ucfirst($page), 'column' => 'categori');
+                        $posts = buildPosts($build, $posts);
                         include 'news.php';
                         break;
                 }
             } else {
-                $posts = getPostsByCategori('all', $posts);
+                $build = array('value' => 'all', 'column' => 'categori');
+                $posts = buildPosts($build, $posts);
                 include 'news.php';
             }
 

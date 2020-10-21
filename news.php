@@ -25,14 +25,13 @@
                             </span>
                         </span>
                     </h6>
-                    <h6 class="small float-right mb-0 m-2">
+                    <div class="h6 small float-right mb-0 m-2">
 
-                        <?= $post['published_date']; ?>
+                        <?= $post['published_date']; ?> | <?= $post['categori']; ?> |
                         <a href="/<?= getAuthor($authors, $post['author'], 'name'); ?>">
                             <?= getAuthor($authors, $post['author'], 'name'); ?>
                         </a>
-                        <img class="rounded-circle" style="width: 40px; height: 40px;" src="<?= getAuthor($authors, $post['author'], 'img'); ?>" />
-                    </h6>
+                    </div>
                 </span>
             </div>
         </article>

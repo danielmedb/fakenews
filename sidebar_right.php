@@ -11,7 +11,7 @@
             <a href="#">
                 <div class="latest-news-list_item_label">10:47</div>
                 <div class="latest-news-list_item_title">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Van Damme engagerad i norsk hundvalp
                 </div>
             </a>
         </li>
@@ -19,7 +19,7 @@
             <a href="#">
                 <div class="latest-news-list_item_label">10:42</div>
                 <div class="latest-news-list_item_title">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    3 saker du bör veta om ditt barns syn
                 </div>
             </a>
         </li>
@@ -27,7 +27,7 @@
             <a href="#">
                 <div class="latest-news-list_item_label">10:37</div>
                 <div class="latest-news-list_item_title">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Studie: Då behöver du juridisk hjälp
                 </div>
             </a>
         </li>
@@ -35,7 +35,7 @@
             <a href="#">
                 <div class="latest-news-list_item_label">10:34</div>
                 <div class="latest-news-list_item_title">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Räkor eller spårvagnar - Vad är mest Göteborgskt?
                 </div>
             </a>
         </li>
@@ -43,7 +43,7 @@
             <a href="#">
                 <div class="latest-news-list_item_label">10:31</div>
                 <div class="latest-news-list_item_title">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    One Direction återuppstår!
                 </div>
             </a>
         </li>
