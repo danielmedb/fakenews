@@ -3,7 +3,7 @@
         <article class="post col-12 p-0">
             <div class="card">
                 <div class="card-header text-center p-0">
-                    <img class="img-fluid img-rounded" src="<?= $post['img']; ?>" />
+                    <img class="img-fluid img-rounded" src="<?= $post['img']; ?>" alt="" />
                 </div>
                 <div class="card-body">
                     <div class="card-title">

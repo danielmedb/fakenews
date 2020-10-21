@@ -30,6 +30,16 @@ body{
     border-radius: .25rem .25rem 0 0;
 }
 
+.nav-link{
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.active{
+    color: black !important;
+    border-bottom: 1px solid rgba(255, 185, 80);
+}
+
+
 /* sidebar_right */
 .latest-news-list_title h2{
 	padding-top: .4375rem;
