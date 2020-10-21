@@ -3,7 +3,7 @@
         <article class="post col-12 p-0">
             <div class="card">
                 <div class="card-header text-center p-0">
-                    <img class="img-fluid" src="<?= $post['img']; ?>" />
+                    <img class="img-fluid img-rounded" src="<?= $post['img']; ?>" />
                 </div>
                 <div class="card-body">
                     <div class="card-title">
@@ -27,7 +27,7 @@
                     </h6>
                     <div class="h6 small float-right mb-0 m-2">
 
-                        <?= $post['published_date']; ?> | <?= $post['categori']; ?> |
+                        <?= $post['published_date']; ?> | <a href="<?= '?page=' . $post['categori'] . '' ?>"><?= $post['categori']; ?></a> |
                         <a href="/<?= getAuthor($authors, $post['author'], 'name'); ?>">
                             <?= getAuthor($authors, $post['author'], 'name'); ?>
                         </a>

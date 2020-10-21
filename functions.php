@@ -23,7 +23,7 @@ function getPostsByAuthor(string $name, $authors, $posts = NULL): array
     // decode stuff like space(%20)
     $name = urldecode($name);
 
-    // search $authors-array for posts from specific person
+    // search $authors-array for posts from specific author
     $author_id = array_search($name, array_column($authors, 'name'));
 
     if ($author_id !== false) {
@@ -46,10 +46,10 @@ function buildPosts(array $array, array $posts): array
     $value = $array['value'];
 
     if ($value === 'all') {
+        // if we want to show all news.
         return $posts;
     }
 
-    // search for posts specific from $author_id
     $array_position = array_keys(array_column($posts, $column), $value);
     foreach ($array_position as $key) {
         $post[] = array_merge(array(), $posts[$key]);

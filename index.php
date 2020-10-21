@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_URI'] !== '/') {
 
 $posts = sortPostsByPublishedDate($posts);
 
+
 ?>
 
 <body>
@@ -65,7 +66,6 @@ $posts = sortPostsByPublishedDate($posts);
 
             if (isset($_GET['page']) && $_GET['page'] != '') {
                 $page = $_GET['page'];
-                $build = [];
                 switch ($page) {
 
                     case $page:
