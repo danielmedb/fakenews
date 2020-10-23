@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 $posts =
+
     [
         [
             'id' => 1,
