@@ -52,10 +52,6 @@ require __DIR__ . "/header.php";
             }
 
             ?>
-            <!-- <div class="col-lg-4 col-xl-4">
-                <?php //require 'sidebar_right.php'; 
-                ?>
-            </div> -->
         </div>
     </div>
 </body>
