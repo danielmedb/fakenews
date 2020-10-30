@@ -1,17 +1,6 @@
 <?php
 
-
-
 declare(strict_types=1);
-
-
-error_reporting(E_ALL);
-
-
-require __DIR__ . '/data.php';
-require __DIR__ . '/authors.php';
-
-
 
 function getAuthor(array $authors, int $author_id, string $type)
 {
@@ -39,6 +28,7 @@ function getPostsByAuthor(string $name, $authors, $posts = NULL): array
         return $posts;
     }
 }
+
 
 function buildPosts(array $array, array $posts): array
 {

@@ -31,11 +31,11 @@ body{
 }
 
 .nav-link{
-    color: rgba(0, 0, 0, 0.6) !important;
+    color: black;
 }
 
 .active{
-    color: black !important;
+    color: black;
     border-bottom: 1px solid rgba(255, 185, 80);
 }
 
