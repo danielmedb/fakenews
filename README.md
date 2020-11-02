@@ -21,3 +21,7 @@ Open the index.php file in your favorite browser
 
 5. There is a typo in README.md on pine 22.
 
+# testers
+Hugo Sundberg <br>
+Victor Stranne <br>
+Joakim Sjögren

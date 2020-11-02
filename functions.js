@@ -6,7 +6,7 @@ window.onload = function () {
             _this = this.getElementsByClassName('fa-stack-1x')[0];
             NumberOfLikes = parseInt(_this.innerText);
 
-            /* duo to no database. change target so if clicked again, minus on the likes */
+            /* If user already clicked like, remove on like. */
             (parseInt(_this.getAttribute("likes")) === NumberOfLikes ? NumberOfLikes++ : NumberOfLikes--)
 
             /* update text */
@@ -38,6 +38,7 @@ window.onload = function () {
                 _this.style.height = '190px';
             }
         });
+
     }
     
 };
